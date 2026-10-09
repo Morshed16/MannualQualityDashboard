@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portal Manual Kualiti 
+
+
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Excel Reader -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="logo-box">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="brand">
+                <h2>UPSI</h2>
+                <span>Portal Manual Kualiti </span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section-title">
+            Manual Kualiti AREAS
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="#" class="nav-item" data-page="area1">
+                <span class="area-number">1</span>
+                <span>Area 1</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="area2">
+                <span class="area-number">2</span>
+                <span>Area 2</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="area3">
+                <span class="area-number">3</span>
+                <span>Area 3</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="area4">
+                <span class="area-number">4</span>
+                <span>Area 4</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="area5">
+                <span class="area-number">5</span>
+                <span>Area 5</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="area6">
+                <span class="area-number">6</span>
+                <span>Area 6</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="area7">
+                <span class="area-number">7</span>
+                <span>Area 7</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="footer-icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+
+            <div>
+                <strong>Portal Manual Kualiti </strong>
+                <small>Bahagian Pengurusan Kualiti, UPSI</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN AREA
+    ========================== -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button class="menu-button" id="menuButton">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+
+                <span>UPSI</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <strong id="breadcrumbText">
+                    Dashboard
+                </strong>
+
+            </div>
+
+
+            
+            <div class="topbar-right">
+
+            <div class="search-mini" id="globalSearchBox">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="globalSearch"
+                    placeholder="Search evidence..."
+                    autocomplete="off"
+                >
+
+                <div
+                    id="globalSearchResults"
+                    class="global-search-results"
+                ></div>
+
+            </div>
+            <!-- DARK MODE TOGGLE -->
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Toggle dark mode">
+
+                <i  class="fa-solid fa-moon"
+                    id="themeIcon"></i>
+
+            </button>
+
+        </div>
+
+        </header>
+
+
+        <!-- =========================
+             PAGE CONTENT
+        ========================== -->
+
+        <section class="content">
+
+            <!-- DASHBOARD -->
+
+            <div id="dashboardPage" class="page active-page">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            DOCUMENTATION PORTAL
+                        </span>
+
+                        <h1> Portal Manual Kualiti  <i> Dashboard </i></h1>
+
+                        <p>
+                            Centralised access to COPPA programme accreditation
+                            evidence for Areas 1–7.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <div>
+                            <span>Total Areas</span>
+                            <strong>7</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon gold">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div>
+                            <span>Total Documents</span>
+                            <strong id="totalDocuments">0</strong>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+
+                        <div>
+                            <span>External Evidence</span>
+                            <strong id="externalDocuments">0</strong>
+                        </div>
+
+                    </div>
+
+            
+                <!-- 4 = MINI BAR CHART --> 
+                <div class="mini-pie-card">
+
+                    <div class="mini-pie-info">
+                        <span class="chart-eyebrow">DOCUMENT</span>
+                        <h5>By Area</h5>
+                    </div>
+
+                    <div class="mini-pie-wrapper">
+                        <canvas id="areaBarChart"></canvas>
+                    </div>
+
+                </div>  
+                    
+
+
+
+                </div>
+
+
+
+                <!-- =========================
+                        ANALYTICS SECTION
+                    ========================== -->
+
+                  <!--  <div class="analytics-section">
+
+                        <div class="section-header">
+
+                            <div>
+                                <h2>Manual Kualiti Analysis</h2>
+
+                                <p>
+                                    Visual overview of document distribution across Areas 1–7.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="charts-grid">  -->
+
+                            <!-- =========================
+                                DOUGHNUT CHART
+                            ========================== -->
+
+              <!--              <div class="chart-card">
+
+                                <div class="chart-card-header">
+
+                                    <div>
+
+                                        <span class="chart-eyebrow">
+                                            DOCUMENT DISTRIBUTION
+                                        </span>
+
+                                        <h3>
+                                            Manual Kualiti by Area
+                                        </h3>
+
+                                    </div>
+
+                                    <div class="chart-icon">
+                                        <i class="fa-solid fa-chart-pie"></i>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="chart-wrapper doughnut-wrapper">
+
+                                    <canvas id="areaPieChart"></canvas>
+
+                                </div>
+
+                            </div>  -->
+
+
+                            <!-- =========================
+                                BAR CHART
+                            ========================== -->
+
+                    <!--        <div class="chart-card">
+
+                                <div class="chart-card-header">
+
+                                    <div>
+
+                                        <span class="chart-eyebrow">
+                                            AREA COMPARISON
+                                        </span>
+
+                                        <h3>
+                                            Documents by Area
+                                        </h3>
+
+                                    </div>
+
+                                    <div class="chart-icon">
+                                        <i class="fa-solid fa-chart-column"></i>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="chart-wrapper">
+
+                                    <canvas id="areaBarChart"></canvas>
+
+                                </div>
+
+                            </div>
+
+                        </div>   
+
+                    </div>  -->
+
+<br>
+
+
+                   <!-- =========================
+                        SPECIAL DOCUMENT FOLDERS
+                    ========================== -->
+
+                    <div class="section-header folder-section-header">
+
+                        <div>
+                            <h2>Document Folders </h2>
+
+                            <p>
+                                Access specialised document collections and supporting evidence.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="area-grid folder-grid" id="folderGrid">
+                        <!-- JavaScript will create folder cards -->
+                    </div>
+
+                    <br>
+                    <br>
+                <!-- AREA CARDS -->
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Manual Kualiti Areas</h2>
+
+                        <p>
+                            Select an area to browse its available documents.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="area-grid" id="areaGrid">
+                    <!-- JavaScript will create cards -->
+                </div>
+
+               
+
+                
+
+            </div>
+
+            <br>
+
+            <!-- AREA PAGE -->
+
+            <div id="areaPage" class="page">
+
+                <div class="page-heading area-heading">
+
+                    <button class="back-button" id="backButton">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Dashboard
+                    </button>
+
+
+                    <div class="area-title-row">
+
+                        <div class="large-area-number" id="areaNumber">
+                            1
+                        </div>
+
+                        <div>
+
+                            <span class="eyebrow" id="areaCode">
+                                AREA 1
+                            </span>
+
+                            <h1 id="areaTitle">
+                                Programme Development and Delivery
+                            </h1>
+
+                            <p id="areaDescription">
+                                Browse all available evidence documents.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+                <!-- AREA TOOLBAR -->
+
+                <div class="document-toolbar">
+
+                    <div class="document-count">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        <span>
+                            <strong id="areaDocumentCount">0</strong>
+                            documents
+                        </span>
+
+                    </div>
+
+
+                    <!-- AREA 2 LEVEL FILTER -->
+
+                    <div
+                        class="level-filter"
+                        id="area2LevelFilter"
+                    >
+
+                        <span class="level-filter-label">
+                            <i class="fa-solid fa-layer-group"></i>
+                            Level
+                        </span>
+
+                        <button
+                            type="button"
+                            class="level-button active"
+                            data-level="Undergraduate"
+                        >
+                            Undergraduate
+                        </button>
+
+                        <button
+                            type="button"
+                            class="level-button"
+                            data-level="Postgraduate"
+                        >
+                            Postgraduate
+                        </button>
+
+                    </div>
+
+
+                    <div class="document-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="areaSearch"
+                            placeholder="Search documents in this area..." >
+
+                    </div>
+
+                </div>
+
+
+                <!-- DOCUMENT LIST -->
+
+                <div id="documentList" class="document-list">
+                    <!-- JavaScript -->
+                </div>
+
+            </div>
+
+            <!-- FOLDER PAGE -->
+
+                <div id="folderPage" class="page">
+
+                    <div class="page-heading area-heading">
+
+                        <button class="back-button" id="folderBackButton">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Dashboard
+                        </button>
+
+                        <div class="area-title-row">
+
+                            <div class="large-area-number folder-page-icon">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </div>
+
+                            <div>
+
+                                <span class="eyebrow" id="folderCode">
+                                    DOCUMENT COLLECTION
+                                </span>
+
+                                <h1 id="folderTitle">
+                                    COPPA Related Documents
+                                </h1>
+
+                                <p id="folderDescription">
+                                    Browse available documents in this collection.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- FOLDER TOOLBAR -->
+
+            <div class="document-toolbar">
+
+                <div class="document-count">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                    <span>
+                        <strong id="folderDocumentCount">0</strong>
+                        documents
+                    </span>
+
+                </div>
+
+                <!-- OTHER IMPORTANT GUIDELINES FILTER -->
+
+                <div
+                    class="level-filter"
+                    id="guidelineTypeFilter"
+                >
+
+                    <span class="level-filter-label">
+                        <i class="fa-solid fa-users"></i>
+                        Type
+                    </span>
+
+                    <button
+                        type="button"
+                        class="level-button active"
+                        data-guideline-type="Akademik"
+                    >
+                        Akademik
+                    </button>
+
+                    <button
+                        type="button"
+                        class="level-button"
+                        data-guideline-type="Staf"
+                    >
+                        Staf
+                    </button>
+
+                </div>
+
+                 <div class="document-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="folderSearch"
+                        placeholder="Search documents in this folder..."
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- FOLDER AREA CARDS -->
+
+            <div
+                id="folderAreaGrid"
+                class="area-grid folder-area-grid">
+            </div>
+
+            <!-- FOLDER DOCUMENT LIST -->
+
+            <div id="folderDocumentList" class="document-list">
+
+                <!-- JavaScript -->
+
+            </div>
+
+        </div>
+
+
+        </section>
+
+
+
+
+            
+
+               
+
+
+        <!-- FOOTER -->
+
+        <footer class="main-footer">
+
+            <span>
+                © 2026 UPSI Portal Manual Kualiti 
+            </span>
+
+            <span>
+                  Bahagian Pengurusan Kualiti, UPSI
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="app.js"></script>
+
+</body>
+</html>
